@@ -3,33 +3,52 @@
 
 <head>
     <script>
+        function execute_job() {
+            window.location.href = "https://127.0.0.1/"
+        }
         function binary() {
             document.getElementById("field2").style.display = 'block';
             document.getElementById("field2_description").innerHTML = "Select binary";
             document.getElementById("field2_input").value = "fun.exe";
+            update_run_link();
         }
         function branch() {
+            document.getElementById("field2").style.display = 'block';
             document.getElementById("field2_description").innerHTML = "Select branch";
             document.getElementById("field2_input").value = "feature/my-things";
+            update_run_link();
         }
-        function execute_job() {
-            window.location.href = "https://127.0.0.1/"
+        function update_run_link() {
+            url = "";
+            document.getElementById("run_link").innerHTML = "<a href=\""+url+"\">Run</a>";
         }
     </script>
 </head>
 
 <body>
     <form>
-        <div id="field1_description">Select mode of operation</div>
-        <select id="field1" name="field1" size="2" multiple>
-            <option value="binary" onclick="binary()">Binary</option>
-            <option value="branch" onclick="branch()">Branch</option>
-        </select>
-        <div id="field2" style="display: none">
+        <p id="field1">
+            <div id="field1_description">Select mode of operation</div>
+            <select size="2" multiple>
+                <option onclick="binary()">Binary</option>
+                <option onclick="branch()">Branch</option>
+            </select>
+        </p>
+        <p id="field2" style="display: none">
             <div id="field2_description"></div>
             <input type="text" id="field2_input" />
-            <button type="button" onclick="execute_job()">Run</button>
-        </div>
+        </p>
+        <p id="field3">
+            <div id="field3_description">Select nodes to run on</div>
+            <select id="field3_select" size="4" multiple>
+                <option value="node1">Node 1</option>
+                <option value="node2">Node 2</option>
+                <option value="node3">Node 3</option>
+                <option value="node4">Node 4</option>
+            </select>
+        </p>
+        <p id="run_link"></p>
+        <!--<button type="button" onclick="execute_job()">Run</button>-->
     </form>
 </body>
 
