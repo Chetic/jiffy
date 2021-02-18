@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script>
+        function binary() {
+            document.getElementById("field2").style.display = 'block';
+            document.getElementById("field2_description").innerHTML = "Select binary";
+            document.getElementById("field2_input").value = "fun.exe";
+        }
+        function branch() {
+            document.getElementById("field2_description").innerHTML = "Select branch";
+            document.getElementById("field2_input").value = "feature/my-things";
+        }
+        function execute_job() {
+            window.location.href = "https://127.0.0.1/"
+        }
+    </script>
+</head>
+
+<body>
+    <form>
+        <div id="field1_description">Select mode of operation</div>
+        <select id="field1" name="field1" size="2" multiple>
+            <option value="binary" onclick="binary()">Binary</option>
+            <option value="branch" onclick="branch()">Branch</option>
+        </select>
+        <div id="field2" style="display: none">
+            <div id="field2_description"></div>
+            <input type="text" id="field2_input" />
+            <button type="button" onclick="execute_job()">Run</button>
+        </div>
+    </form>
+</body>
+
+</html>
